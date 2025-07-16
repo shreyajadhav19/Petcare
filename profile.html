@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pet Profile 🐶 | PetCare Buddy</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header>
+    <h1>🐶 Pet Profile Manager</h1>
+    <p>Add and view your adorable pets here!</p>
+  </header>
+
+  <main class="form-section">
+    <form id="petForm">
+      <input type="text" id="petName" placeholder="Pet Name 🐾" required />
+      <input type="text" id="petBreed" placeholder="Breed 🐕" required />
+      <input type="number" id="petAge" placeholder="Age (in years)" required />
+      <input type="file" id="petImage" accept="image/*" />
+      <button type="submit" class="btn">Add Pet</button>
+    </form>
+
+    <section id="petList" class="card-list"></section>
+  </main>
+
+  <footer>
+    <p>Back to <a href="index.html">Home</a></p>
+  </footer>
+
+  <script src="js/profile.js"></script>
+</body>
+</html>

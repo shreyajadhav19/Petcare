@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pet Gallery 📸 | PetCare Buddy</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header>
+    <h1>📸 Pet Photo Gallery</h1>
+    <p>Upload and cherish your pet's cutest moments!</p>
+  </header>
+
+  <!-- ✅ Upload Form Section (This was missing before) -->
+  <main class="form-section">
+    <form id="photoForm">
+      <input type="file" id="photoInput" accept="image/*" required />
+      <input type="text" id="caption" placeholder="Enter a cute caption" />
+      <button type="submit" class="btn">Upload</button>
+    </form>
+
+    <section id="gallery" class="card-list"></section>
+  </main>
+
+  <footer>
+    <p>Back to <a href="index.html">Home</a></p>
+  </footer>
+
+  <!-- ✅ Link the existing gallery script -->
+  <script src="js/gallery.js"></script>
+</body>
+</html>

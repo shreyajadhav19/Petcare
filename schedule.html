@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pet Schedule 🕐 | PetCare Buddy</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header>
+    <h1>🕐 Pet Daily Schedule</h1>
+    <p>Manage feeding, walk, and medicine times</p>
+  </header>
+
+  <main class="form-section">
+    <form id="scheduleForm">
+      <input type="text" id="taskName" placeholder="Task (e.g., Feed Bella 🥣)" required />
+      <input type="time" id="taskTime" required />
+      <select id="taskType">
+        <option value="Feeding">🍽 Feeding</option>
+        <option value="Walking">🚶 Walking</option>
+        <option value="Medicine">💊 Medicine</option>
+        <option value="Other">📝 Other</option>
+      </select>
+      <button type="submit" class="btn">Add Task</button>
+    </form>
+
+    <section id="taskList" class="card-list"></section>
+  </main>
+
+  <footer>
+    <p>Back to <a href="index.html">Home</a></p>
+  </footer>
+
+  <script src="js/schedule.js"></script>
+</body>
+</html>

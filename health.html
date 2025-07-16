@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pet Health 🩺 | PetCare Buddy</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header>
+    <h1>💉 Pet Health & Vaccination</h1>
+    <p>Track your pet’s medical history and vaccines</p>
+  </header>
+
+  <main class="form-section">
+    <form id="healthForm">
+      <input type="text" id="vaccineName" placeholder="Vaccine/Checkup Name 💉" required />
+      <input type="date" id="vaccineDate" required />
+      <input type="text" id="vetName" placeholder="Veterinarian 🏥" />
+      <button type="submit" class="btn">Add Record</button>
+    </form>
+
+    <section id="healthList" class="card-list"></section>
+  </main>
+
+  <footer>
+    <p>Back to <a href="index.html">Home</a></p>
+  </footer>
+
+  <script src="js/health.js"></script>
+</body>
+</html>

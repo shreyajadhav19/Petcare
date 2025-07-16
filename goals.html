@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Daily Goals 🎯 | PetCare Buddy</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header>
+    <h1>🎯 Daily Pet Goals</h1>
+    <p>Set and track daily care goals for your furry friend!</p>
+  </header>
+
+  <main class="form-section">
+    <form id="goalForm">
+      <input type="text" id="goalText" placeholder="e.g., Brush fur, Play fetch" required />
+      <button type="submit" class="btn">Add Goal</button>
+    </form>
+
+    <ul id="goalList" class="card-list"></ul>
+  </main>
+
+  <footer>
+    <p>Back to <a href="index.html">Home</a></p>
+  </footer>
+
+  <!-- ✅ Corrected Script Section -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const goalForm = document.getElementById("goalForm");
+      const goalList = document.getElementById("goalList");
+
+      const loadGoals = () => {
+        const goals = JSON.parse(localStorage.getItem("petGoals")) || [];
+        goalList.innerHTML = "";
+        goals.forEach((goal, index) => {
+          const li = document.createElement("li");
+          li.className = "pet-card";
+          li.innerHTML = `
+            <input type="checkbox" onchange="toggleGoal(${index})" ${goal.done ? 'checked' : ''}/>
+            <span style="text-decoration: ${goal.done ? 'line-through' : 'none'}">${goal.text}</span>
+            <button onclick="deleteGoal(${index})" class="delete-btn">🗑</button>
+          `;
+          goalList.appendChild(li);
+        });
+      };
+
+      goalForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const text = document.getElementById("goalText").value;
+        const goals = JSON.parse(localStorage.getItem("petGoals")) || [];
+        goals.push({ text, done: false });
+        localStorage.setItem("petGoals", JSON.stringify(goals));
+        goalForm.reset();
+        loadGoals();
+      });
+
+      window.toggleGoal = (index) => {
+        const goals = JSON.parse(localStorage.getItem("petGoals")) || [];
+        goals[index].done = !goals[index].done;
+        localStorage.setItem("petGoals", JSON.stringify(goals));
+        loadGoals();
+      };
+
+      window.deleteGoal = (index) => {
+        const goals = JSON.parse(localStorage.getItem("petGoals")) || [];
+        goals.splice(index, 1);
+        localStorage.setItem("petGoals", JSON.stringify(goals));
+        loadGoals();
+      };
+
+      loadGoals();
+    });
+  </script>
+</body>
+</html>
